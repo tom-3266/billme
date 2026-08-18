@@ -1,8 +1,7 @@
 {
   "repoName": "billme",
-  "productName": "Billme",
+  "productName": "billme",
   "productDomain": "billme.dev",
-  "workersDevSubdomain": "myaccount",
-  "orunWorkspace": "org_c2f4e71afff34c9c842ea95697bf3683",
-  "orunWorkspaceSlug": "billme"
+  "workersDevSubdomain": "billme",
+  "orunWorkspace": "org_c2f4e71afff34c9c842ea95697bf3683"
 }
