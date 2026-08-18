@@ -1,5 +1,5 @@
 // `billme webhook verify` — local cryptographic verification of a
-// Billme outbound webhook delivery (Task 0106).
+// billme outbound webhook delivery (Task 0106).
 //
 // This command is a thin shell around `@saas/webhook-verifier` (Task 0105).
 // It deliberately:

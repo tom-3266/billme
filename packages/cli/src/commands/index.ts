@@ -96,7 +96,7 @@ export async function orgUseCommand(ctx: CommandContext): Promise<CommandResult>
     throw new UsageError("usage: billme org use <org-id>");
   }
   // Validate the org exists by hitting the SDK; surface 404 as
-  // BillmeError → friendly CLI message.
+  // billmeError → friendly CLI message.
   const sdk = await ctx.sdk();
   await sdk.organizations.get(orgId);
   await ctx.contextStore.setActiveOrg(orgId);

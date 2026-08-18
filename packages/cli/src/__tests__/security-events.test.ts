@@ -1,7 +1,7 @@
 // Tests for Task 0122 — `billme security events` CLI subcommand.
 //
 // The harness injects a *fake SDK* via `sdkFactory` rather than going through
-// the real `Billme` client + a captured-fetch — the command is a thin
+// the real `billme` client + a captured-fetch — the command is a thin
 // adapter over `sdk.securityEvents.listPage`, so direct SDK-layer injection
 // lets us assert the call shape (query) and the cursor-following loop without
 // modelling the request envelope. The fake mirrors only the subset of the SDK
@@ -24,7 +24,7 @@ import * as path from "node:path";
 import { describe, expect, it, vi } from "vitest";
 
 import type {
-  Billme,
+  billme,
   PublicSecurityEvent,
   SecurityEventsPage,
 } from "@saas/sdk";
@@ -113,7 +113,7 @@ async function withHarness(
 
     const fakeSdk = {
       securityEvents: { listPage },
-    } as unknown as Billme;
+    } as unknown as billme;
 
     const runArgv = (argv: string[]): Promise<{ exitCode: number }> =>
       runCli(argv, {

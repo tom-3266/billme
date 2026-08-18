@@ -7,13 +7,13 @@
 //   - POST/PATCH bodies serialize to JSON
 //   - Stripe parity: caller-owned idempotency-key passthrough on POSTs
 //   - Stripe parity: NOT auto-generated when caller omits the key
-//   - BillmeError hierarchy propagation with request-id passthrough
+//   - billmeError hierarchy propagation with request-id passthrough
 //     (Unauthenticated / RateLimit / Validation / Internal)
 //   - x-request-id surfacing through the envelope (custom requestId opt)
 
 import { describe, expect, it, vi } from "vitest";
 
-import { Billme } from "../index.js";
+import { billme } from "../index.js";
 import {
   InternalError,
   RateLimitError,
@@ -64,8 +64,8 @@ function errorResponse(code: string, status: number): Response {
   );
 }
 
-function client(fetchImpl: typeof fetch): Billme {
-  return new Billme({ baseUrl: "https://api.test", fetch: fetchImpl });
+function client(fetchImpl: typeof fetch): billme {
+  return new billme({ baseUrl: "https://api.test", fetch: fetchImpl });
 }
 
 describe("AuthClient", () => {
@@ -306,7 +306,7 @@ describe("AuthClient", () => {
     expect(parsed.searchParams.get("return_to")).toBe("https://console.test/auth/callback");
   });
 
-  it("client.auth is wired onto the Billme class", () => {
+  it("client.auth is wired onto the billme class", () => {
     const { fetch } = captureFetch(jsonResponse(envelope({ success: true })));
     const c = client(fetch);
     expect(typeof c.auth.loginStart).toBe("function");

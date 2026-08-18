@@ -7,4 +7,4 @@ below at build time.
 
 ## Depended on by
 
-- **cli** — First-class TypeScript CLI for the Billme control plane API
+- **cli** — First-class TypeScript CLI for the billme control plane API

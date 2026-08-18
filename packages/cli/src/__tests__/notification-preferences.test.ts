@@ -15,7 +15,7 @@ import * as path from "node:path";
 
 import { describe, expect, it, vi } from "vitest";
 
-import type { Billme, NotificationPreference } from "@saas/sdk";
+import type { billme, NotificationPreference } from "@saas/sdk";
 
 import { runCli } from "../cli-runner.js";
 import { ContextStore } from "../context/store.js";
@@ -67,7 +67,7 @@ async function withHarness(
     const fakeSdk = {
       notifications: { getPreferences, updatePreferences },
       auth: { getProfile },
-    } as unknown as Billme;
+    } as unknown as billme;
 
     const runArgv = (argv: string[]): Promise<{ exitCode: number }> =>
       runCli(argv, {
