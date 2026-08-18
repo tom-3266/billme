@@ -17,7 +17,7 @@ import * as path from "node:path";
 import { describe, expect, it, vi } from "vitest";
 
 import type {
-  Billme,
+  billme,
   PublicWebhookDeliveryAttempt,
   ReplayWebhookDeliveryResponse,
 } from "@saas/sdk";
@@ -109,7 +109,7 @@ async function withHarness(
 
     const fakeSdk = {
       webhooks: { replayDelivery },
-    } as unknown as Billme;
+    } as unknown as billme;
 
     const runArgv = (argv: string[]): Promise<{ exitCode: number }> =>
       runCli(argv, {

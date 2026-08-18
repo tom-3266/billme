@@ -1,7 +1,7 @@
 # `@saas/sdk`
 
-Billme TypeScript SDK — typed, dependency-free, runtime-agnostic client
-for the Billme control plane API.
+billme TypeScript SDK — typed, dependency-free, runtime-agnostic client
+for the billme control plane API.
 
 ## Install (workspace)
 
@@ -22,9 +22,9 @@ Then `pnpm install` from the repo root.
 ## Getting started
 
 ```ts
-import { Billme } from "@saas/sdk";
+import { billme } from "@saas/sdk";
 
-const client = new Billme({
+const client = new billme({
   baseUrl: "https://api.billme.dev",
   auth: { kind: "bearer", token: process.env["BILLME_TOKEN"]! },
 });
@@ -54,14 +54,14 @@ replay store guarantees no double-create.
 
 ## Error handling
 
-All non-2xx responses throw a typed subclass of `BillmeError`. Branch on
+All non-2xx responses throw a typed subclass of `billmeError`. Branch on
 the class (or on `error.code`):
 
 ```ts
 import {
   RateLimitError,
   ValidationError,
-  Billme,
+  billme,
 } from "@saas/sdk";
 
 try {
@@ -93,10 +93,10 @@ The full hierarchy:
 | `ValidationError`           | `validation_failed`   | 422            |
 | `RateLimitError`            | `rate_limited`        | 429            |
 | `InternalError`             | `internal_error`      | 500+           |
-| `BillmeError` (base)   | _any_                 | _any_          |
+| `billmeError` (base)   | _any_                 | _any_          |
 
 Unknown error codes (forward-compatible — e.g. a future `quota_exceeded`)
-decode to the base `BillmeError` carrying the raw envelope. Non-JSON 5xx
+decode to the base `billmeError` carrying the raw envelope. Non-JSON 5xx
 responses (gateway HTML, empty body) decode to `InternalError` with
 `message: "HTTP <status>"`.
 
@@ -122,7 +122,7 @@ The SDK is runtime-agnostic. The same source runs on:
 | Cloudflare Workers   | ✅ Tier 1  | No `node:*` imports; pure Web Platform.                 |
 | Bun                  | ✅ Tier 1  | Native `fetch` + Web Crypto.                            |
 
-A custom `fetch` implementation can be injected via `new Billme({ fetch })`.
+A custom `fetch` implementation can be injected via `new billme({ fetch })`.
 This is mostly useful for tests; production callers should rely on the platform
 global.
 

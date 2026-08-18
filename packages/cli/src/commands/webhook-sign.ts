@@ -1,5 +1,5 @@
 // `billme webhook sign` — local cryptographic signing of a
-// Billme outbound webhook payload (Task 0107).
+// billme outbound webhook payload (Task 0107).
 //
 // Symmetric counterpart to `webhook verify` (Task 0106). Wraps
 // `@saas/webhook-verifier`'s `signWebhookPayload` exactly; all crypto

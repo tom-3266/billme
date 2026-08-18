@@ -2,7 +2,7 @@ apiVersion: sourceplane.io/v1
 kind: Component
 metadata:
   name: sdk
-  description: Runtime-agnostic TypeScript SDK for the Billme control plane API
+  description: Runtime-agnostic TypeScript SDK for the billme control plane API
 spec:
   docs:
     overview: docs/overview.md

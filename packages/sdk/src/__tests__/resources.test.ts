@@ -7,7 +7,7 @@
 
 import { describe, expect, it, vi } from "vitest";
 
-import { Billme } from "../index.js";
+import { billme } from "../index.js";
 import {
   ConflictError,
   ForbiddenError,
@@ -62,8 +62,8 @@ function errorResponse(code: string, status: number): Response {
 
 type FetchImpl = typeof fetch;
 
-function client(fetchImpl: FetchImpl): Billme {
-  return new Billme({ baseUrl: "https://api.test", fetch: fetchImpl });
+function client(fetchImpl: FetchImpl): billme {
+  return new billme({ baseUrl: "https://api.test", fetch: fetchImpl });
 }
 
 // ---------------------------------------------------------------------------
