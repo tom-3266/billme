@@ -48,7 +48,10 @@
         }
       ],
       "services": [
-        // @cycle-break:billing-worker->membership-worker:ewogICAgICAgICAgImJpbmRpbmciOiAiTUVNQkVSU0hJUF9XT1JLRVIiLAogICAgICAgICAgInNlcnZpY2UiOiAiYmlsbG1lLW1lbWJlcnNoaXAtd29ya2VyLXN0YWdlIgogICAgICAgIH0s
+        {
+          "binding": "MEMBERSHIP_WORKER",
+          "service": "billme-membership-worker-stage"
+        },
         {
           "binding": "POLICY_WORKER",
           "service": "billme-policy-worker-stage"
@@ -71,7 +74,10 @@
         }
       ],
       "services": [
-        // @cycle-break:billing-worker->membership-worker:ewogICAgICAgICAgImJpbmRpbmciOiAiTUVNQkVSU0hJUF9XT1JLRVIiLAogICAgICAgICAgInNlcnZpY2UiOiAiYmlsbG1lLW1lbWJlcnNoaXAtd29ya2VyLXByb2QiCiAgICAgICAgfSw=
+        {
+          "binding": "MEMBERSHIP_WORKER",
+          "service": "billme-membership-worker-prod"
+        },
         {
           "binding": "POLICY_WORKER",
           "service": "billme-policy-worker-prod"
